@@ -1358,9 +1358,21 @@ footer a:hover {
 /* ================= THANK YOU PAGE ================= */
 
 
-.thank-you-page {
+.thank-you-body {
+
+    background:#0b0b0b;
+
+    color:#e8dfcf;
+
+}
+
+
+
+.thank-you-container {
 
     min-height:100vh;
+
+    width:100%;
 
     display:flex;
 
@@ -1380,40 +1392,52 @@ footer a:hover {
 
 .thank-you-logo {
 
-    width:160px;
+    width:140px;
 
-    max-width:80%;
+    height:auto;
 
-    margin-bottom:35px;
+    margin:0 auto 40px auto;
+
+    display:block;
 
 }
 
 
 
-.thank-you-page h1 {
+.thank-you-container h1 {
 
     font-family:"Cormorant Garamond", serif;
 
-    font-size:clamp(2.8rem, 5vw, 4rem);
+    font-size:clamp(3rem, 5vw, 4.5rem);
 
     color:var(--gold-light);
 
-    margin-bottom:20px;
+    margin:0 0 25px 0;
 
 }
 
 
 
-.thank-you-page p {
+.thank-you-container p {
 
-    max-width:600px;
+    max-width:550px;
 
-    color:var(--text-soft);
+    font-family:"Inter", sans-serif;
 
     font-size:1.1rem;
 
     line-height:1.8;
 
-    margin-bottom:35px;
+    color:var(--text-soft);
+
+    margin:0 auto 40px auto;
+
+}
+
+
+
+.thank-you-container .hero-button {
+
+    display:inline-block;
 
 }

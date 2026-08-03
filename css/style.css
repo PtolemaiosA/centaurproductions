@@ -1355,4 +1355,65 @@ footer a:hover {
 
 
 
+/* ================= THANK YOU PAGE ================= */
+
+
+.thank-you-page {
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+
+.thank-you-logo {
+
+    width:160px;
+
+    max-width:80%;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.thank-you-page h1 {
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:clamp(2.8rem, 5vw, 4rem);
+
+    color:var(--gold-light);
+
+    margin-bottom:20px;
+
+}
+
+
+
+.thank-you-page p {
+
+    max-width:600px;
+
+    color:var(--text-soft);
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
 }

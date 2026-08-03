@@ -1,6 +1,68 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2870
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-}
+/* =====================================================
+   CENTAUR PRODUCTIONS
+   Main JavaScript
+===================================================== */
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    const menu = document.querySelector(".menu");
+
+    const logo = document.querySelector(".nav-logo");
+
+
+    /*
+        Navigation behaviour:
+
+        0px:
+        - Logo visible
+        - Menu hidden
+
+        80px:
+        - Menu fades in
+
+        350px:
+        - Logo fades out
+    */
+
+
+    window.addEventListener("scroll", function () {
+
+
+        const scrollPosition = window.scrollY;
+
+
+
+        // Fade menu in early
+
+        if (scrollPosition > 80) {
+
+            menu.classList.add("visible");
+
+        } else {
+
+            menu.classList.remove("visible");
+
+        }
+
+
+
+        // Keep logo longer, fade near second section
+
+        if (scrollPosition > 350) {
+
+            logo.classList.add("hidden");
+
+        } else {
+
+            logo.classList.remove("hidden");
+
+        }
+
+
+
+    });
+
+
+});

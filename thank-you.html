@@ -18,14 +18,6 @@
     </title>
 
 
-    <link rel="stylesheet"
-          href="css/style.css">
-
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-
     <link rel="preconnect"
           href="https://fonts.googleapis.com">
 
@@ -39,15 +31,227 @@
           rel="stylesheet">
 
 
+    <style>
+
+
+        * {
+
+            margin:0;
+
+            padding:0;
+
+            box-sizing:border-box;
+
+        }
+
+
+
+        html,
+        body {
+
+            width:100%;
+
+            min-height:100%;
+
+        }
+
+
+
+        body {
+
+            background:#0b0b0b;
+
+            color:#e8dfcf;
+
+            font-family:"Inter", sans-serif;
+
+            overflow-x:hidden;
+
+        }
+
+
+
+        .thank-you-page {
+
+            width:100%;
+
+            min-height:100vh;
+
+            display:flex;
+
+            flex-direction:column;
+
+            justify-content:center;
+
+            align-items:center;
+
+            text-align:center;
+
+            padding:60px 24px;
+
+        }
+
+
+
+        .thank-you-logo {
+
+            display:block;
+
+            width:110px;
+
+            height:auto;
+
+            margin:0 auto 30px auto;
+
+        }
+
+
+
+        .thank-you-title {
+
+            width:100%;
+
+            max-width:700px;
+
+            margin:0 auto 18px auto;
+
+            font-family:"Cormorant Garamond", serif;
+
+            font-size:clamp(2.5rem, 5vw, 3.6rem);
+
+            font-weight:500;
+
+            line-height:1.1;
+
+            letter-spacing:0.02em;
+
+            text-align:center;
+
+            color:#e4c98b;
+
+        }
+
+
+
+        .thank-you-text {
+
+            width:100%;
+
+            max-width:560px;
+
+            margin:0 auto 34px auto;
+
+            font-family:"Inter", sans-serif;
+
+            font-size:1rem;
+
+            font-weight:300;
+
+            line-height:1.8;
+
+            letter-spacing:0.01em;
+
+            text-align:center;
+
+            color:#cfc5b5;
+
+        }
+
+
+
+        .thank-you-button {
+
+            display:inline-block;
+
+            padding:14px 30px;
+
+            border:1px solid #c6a15b;
+
+            background:transparent;
+
+            color:#e4c98b;
+
+            font-family:"Inter", sans-serif;
+
+            font-size:0.85rem;
+
+            font-weight:400;
+
+            letter-spacing:0.08em;
+
+            text-decoration:none;
+
+            text-transform:uppercase;
+
+            transition:all 0.3s ease;
+
+        }
+
+
+
+        .thank-you-button:hover {
+
+            background:#c6a15b;
+
+            color:#0b0b0b;
+
+        }
+
+
+
+        @media (max-width:600px) {
+
+
+            .thank-you-page {
+
+                padding:40px 20px;
+
+            }
+
+
+
+            .thank-you-logo {
+
+                width:90px;
+
+                margin-bottom:25px;
+
+            }
+
+
+
+            .thank-you-title {
+
+                font-size:2.5rem;
+
+            }
+
+
+
+            .thank-you-text {
+
+                font-size:0.95rem;
+
+                line-height:1.7;
+
+            }
+
+
+        }
+
+
+    </style>
+
+
 </head>
 
 
 
-<body class="thank-you-body">
+<body>
 
 
 
-    <main class="thank-you-container">
+    <main class="thank-you-page">
 
 
 
@@ -59,7 +263,7 @@
 
 
 
-        <h1>
+        <h1 class="thank-you-title">
 
             Thank You
 
@@ -69,7 +273,7 @@
 
 
 
-        <p>
+        <p class="thank-you-text">
 
             Your message has been received.
 
@@ -82,11 +286,9 @@
 
 
         <a href="index.html"
-           class="hero-button">
-
+           class="thank-you-button">
 
             Return Home
-
 
         </a>
 

@@ -374,6 +374,10 @@ p {
 
 }
 
+
+
+
+
 /* ================= SECTIONS ================= */
 
 
@@ -483,7 +487,6 @@ p {
     object-fit:cover;
 
 }
-
 
 
 
@@ -625,8 +628,6 @@ p {
 
 
 
-
-
 .service-card {
 
     position:relative;
@@ -649,8 +650,6 @@ p {
 
 
 
-
-
 .service-background {
 
     position:absolute;
@@ -666,8 +665,6 @@ p {
     transition:transform .8s ease;
 
 }
-
-
 
 
 
@@ -695,8 +692,6 @@ p {
 
 
 
-
-
 .service-content {
 
     position:relative;
@@ -706,8 +701,6 @@ p {
     padding:35px;
 
 }
-
-
 
 
 
@@ -724,8 +717,6 @@ p {
     transition:.4s ease;
 
 }
-
-
 
 
 
@@ -749,8 +740,6 @@ p {
 
 
 
-
-
 .service-card h3 {
 
     color:#e8dfcf;
@@ -765,8 +754,6 @@ p {
 
 
 
-
-
 .service-card p {
 
     color:#d1c7b7;
@@ -776,8 +763,6 @@ p {
     line-height:1.7;
 
 }
-
-
 
 
 
@@ -860,6 +845,10 @@ p {
     background-image:url("../images/services/release.jpeg");
 
 }
+
+
+
+
 
 /* ================= PROJECTS ================= */
 
@@ -1003,8 +992,6 @@ p {
 
 
 
-
-
 .contact-form {
 
     display:flex;
@@ -1025,8 +1012,6 @@ p {
 
 
 
-
-
 .form-row {
 
     display:grid;
@@ -1036,8 +1021,6 @@ p {
     gap:25px;
 
 }
-
-
 
 
 
@@ -1067,8 +1050,6 @@ p {
 
 
 
-
-
 .contact-form textarea {
 
     resize:none;
@@ -1094,8 +1075,6 @@ p {
     border-color:var(--gold);
 
 }
-
-
 
 
 
@@ -1160,6 +1139,122 @@ footer a {
 footer a:hover {
 
     color:var(--gold);
+
+}
+
+
+
+
+
+/* ================= THANK YOU PAGE ================= */
+
+
+
+.thank-you-body {
+
+    margin:0;
+
+    padding:0;
+
+    min-height:100vh;
+
+    background:#0b0b0b;
+
+    color:#e8dfcf;
+
+}
+
+
+
+.thank-you-container {
+
+    min-height:100vh;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.thank-you-logo {
+
+    display:block;
+
+    width:140px;
+
+    height:auto;
+
+    margin:0 auto 35px auto;
+
+}
+
+
+
+.thank-you-container h1 {
+
+    margin:0 0 20px 0;
+
+    padding:0;
+
+    font-family:"Cormorant Garamond", serif;
+
+    font-size:clamp(3rem,5vw,4.5rem);
+
+    font-weight:500;
+
+    line-height:1.1;
+
+    color:var(--gold-light);
+
+}
+
+
+
+.thank-you-container p {
+
+    width:100%;
+
+    max-width:550px;
+
+    margin:0 auto 35px auto;
+
+    padding:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:1.1rem;
+
+    font-weight:400;
+
+    line-height:1.8;
+
+    text-align:center;
+
+    color:var(--text-soft);
+
+}
+
+
+
+.thank-you-container .hero-button {
+
+    display:inline-block;
+
+    margin:0 auto;
 
 }
 
@@ -1255,29 +1350,31 @@ footer a:hover {
 
 
 
+/* ================= MOBILE ================= */
+
+
+
 @media(max-width:600px){
 
 
 
-    h1 {
+    .hero {
 
-        font-size:2.5rem;
+        min-height:100svh;
 
-    }
+        height:100svh;
 
-
-
-    h2 {
-
-        font-size:2.2rem;
+        background-position:center;
 
     }
 
 
 
-    .section {
+    .nav-logo {
 
-        padding:90px 7%;
+        top:15px;
+
+        left:15px;
 
     }
 
@@ -1285,13 +1382,19 @@ footer a:hover {
 
     .nav-logo img {
 
-        width:150px;
+    width:75px;
 
-    }
+    height:auto;
+
+    content:url("../images/logo/centaur-logo-2-transparent.png");
+
+}
 
 
 
     .menu {
+
+        right:15px;
 
         gap:18px;
 
@@ -1303,6 +1406,132 @@ footer a:hover {
 
         font-size:.7rem;
 
+        letter-spacing:.18em;
+
+    }
+
+
+
+    .hero-content {
+
+        width:100%;
+
+        max-width:100%;
+
+        padding:100px 24px 45px 24px;
+
+    }
+
+
+
+    h1 {
+
+        font-size:2.5rem;
+
+        line-height:1.12;
+
+    }
+
+
+
+    .hero-subtitle {
+
+        max-width:100%;
+
+        margin:28px auto;
+
+        font-size:.95rem;
+
+        line-height:1.65;
+
+    }
+
+
+
+    .hero-button {
+
+        padding:14px 26px;
+
+        font-size:.75rem;
+
+    }
+
+
+
+    .hero-services {
+
+        margin-top:28px;
+
+        font-size:.7rem;
+
+        line-height:1.8;
+
+        letter-spacing:.12em;
+
+    }
+
+
+
+    .scroll-indicator {
+
+        margin-top:35px;
+
+    }
+
+
+
+    .section {
+
+        padding:75px 7%;
+
+    }
+
+
+
+    h2 {
+
+        font-size:2.2rem;
+
+        line-height:1.2;
+
+        margin-bottom:25px;
+
+    }
+
+
+
+    .section-label {
+
+        font-size:.7rem;
+
+        letter-spacing:.22em;
+
+        margin-bottom:25px;
+
+    }
+
+
+
+    .image-text-layout {
+
+        gap:35px;
+
+    }
+
+
+
+    #method .section-image {
+
+        height:360px;
+
+    }
+
+
+
+    .studio-image img {
+
+        max-width:100%;
+
     }
 
 
@@ -1311,13 +1540,27 @@ footer a:hover {
 
         grid-template-columns:1fr;
 
+        gap:25px;
+
+        margin-top:35px;
+
+    }
+
+
+
+    .service-grid {
+
+        margin-top:40px;
+
+        gap:22px;
+
     }
 
 
 
     .service-card {
 
-        min-height:420px;
+        min-height:390px;
 
     }
 
@@ -1325,7 +1568,19 @@ footer a:hover {
 
     .service-content {
 
-        padding:28px;
+        padding:26px;
+
+    }
+
+
+
+    .service-icon {
+
+        width:48px;
+
+        height:48px;
+
+        margin-bottom:20px;
 
     }
 
@@ -1335,6 +1590,38 @@ footer a:hover {
 
         font-size:1.7rem;
 
+        line-height:1.15;
+
+        margin-bottom:14px;
+
+    }
+
+
+
+    .service-card p {
+
+        font-size:.9rem;
+
+        line-height:1.6;
+
+    }
+
+
+
+    .projects-grid {
+
+        margin-top:40px;
+
+        gap:45px;
+
+    }
+
+
+
+    .project-card img {
+
+        margin-bottom:20px;
+
     }
 
 
@@ -1343,125 +1630,106 @@ footer a:hover {
 
         min-height:700px;
 
+        padding:75px 0;
+
+    }
+
+
+
+    .contact-content {
+
+        width:86%;
+
+    }
+
+
+
+    .contact-content > p {
+
+        margin-bottom:30px;
+
     }
 
 
 
     .contact-form {
 
-        padding:25px;
+        padding:25px 20px;
+
+        gap:20px;
 
     }
 
 
 
-/* ================= THANK YOU PAGE ================= */
+    .contact-form input,
+
+    .contact-form textarea {
+
+        padding:16px;
+
+        font-size:.9rem;
+
+    }
 
 
-.thank-you-body {
 
-    margin:0;
+    footer {
 
-    padding:0;
+        padding:35px 20px;
 
-    min-height:100vh;
+    }
 
-    background:#0b0b0b;
 
-    color:#e8dfcf;
 
 }
 
 
 
-.thank-you-container {
 
-    min-height:100vh;
 
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px;
-
-    box-sizing:border-box;
-
-}
+/* ================= THANK YOU MOBILE ================= */
 
 
 
-.thank-you-logo {
-
-    display:block;
-
-    width:140px;
-
-    height:auto;
-
-    margin:0 auto 35px auto;
-
-}
+@media(max-width:600px){
 
 
 
-.thank-you-container h1 {
+    .thank-you-container {
 
-    margin:0 0 20px 0;
+        padding:30px 20px;
 
-    padding:0;
-
-    font-family:"Cormorant Garamond", serif;
-
-    font-size:clamp(3rem, 5vw, 4.5rem);
-
-    font-weight:500;
-
-    line-height:1.1;
-
-    color:var(--gold-light);
-
-}
+    }
 
 
 
-.thank-you-container p {
+    .thank-you-logo {
 
-    width:100%;
+        width:110px;
 
-    max-width:550px;
+        margin-bottom:28px;
 
-    margin:0 auto 35px auto;
-
-    padding:0;
-
-    font-family:"Inter", sans-serif;
-
-    font-size:1.1rem;
-
-    font-weight:400;
-
-    line-height:1.8;
-
-    text-align:center;
-
-    color:var(--text-soft);
-
-}
+    }
 
 
 
-.thank-you-container .hero-button {
+    .thank-you-container h1 {
 
-    display:inline-block;
+        font-size:3rem;
 
-    margin:0 auto;
+    }
+
+
+
+    .thank-you-container p {
+
+        font-size:1rem;
+
+        line-height:1.7;
+
+    }
+
+
 
 }

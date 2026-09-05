@@ -1,4 +1,3 @@
-cat > functions/gr/index.js <<'EOF'
 const LANGUAGE_COOKIE = "centaur_language";
 
 
@@ -72,4 +71,3 @@ export async function onRequest(context) {
     return context.next();
 
 }
-EOF

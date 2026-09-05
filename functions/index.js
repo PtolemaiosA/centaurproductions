@@ -1,4 +1,3 @@
-cat > functions/index.js <<'EOF'
 const LANGUAGE_COOKIE = "centaur_language";
 
 
@@ -167,4 +166,3 @@ export async function onRequest(context) {
     );
 
 }
-EOF

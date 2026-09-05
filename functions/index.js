@@ -3,57 +3,100 @@ const LANGUAGE_COOKIE = "centaur_language";
 
 function getCookie(request, name) {
 
-    const cookieHeader = request.headers.get("Cookie") || "";
+    const cookieHeader =
+        request.headers.get("Cookie") || "";
 
-    const cookies = cookieHeader.split(";");
+    const cookies =
+        cookieHeader.split(";");
+
 
     for (const cookie of cookies) {
 
-        const parts = cookie.trim().split("=");
+        const parts =
+            cookie.trim().split("=");
+
 
         if (parts[0] === name) {
 
-            return parts.slice(1).join("=");
+            return parts
+                .slice(1)
+                .join("=");
 
         }
 
     }
+
 
     return null;
 
 }
 
 
-function redirect(url, language) {
+function redirect(request, path, language) {
 
-    const response = Response.redirect(url, 302);
+    const destination =
+        new URL(path, request.url).toString();
+
+
+    const response =
+        Response.redirect(
+            destination,
+            302
+        );
+
 
     response.headers.set(
         "Set-Cookie",
         `${LANGUAGE_COOKIE}=${language}; Path=/; Max-Age=31536000; SameSite=Lax`
     );
 
+
     return response;
+
+}
+
+
+async function serveWithLanguageCookie(
+    context,
+    language
+) {
+
+    const response =
+        await context.next();
+
+
+    const newResponse =
+        new Response(
+            response.body,
+            response
+        );
+
+
+    newResponse.headers.set(
+        "Set-Cookie",
+        `${LANGUAGE_COOKIE}=${language}; Path=/; Max-Age=31536000; SameSite=Lax`
+    );
+
+
+    return newResponse;
 
 }
 
 
 export async function onRequest(context) {
 
-    const request = context.request;
+    const request =
+        context.request;
 
-    const url = new URL(request.url);
 
-    const cookieLanguage = getCookie(
-        request,
-        LANGUAGE_COOKIE
-    );
+    const url =
+        new URL(request.url);
 
 
     /*
      * Only handle the actual homepage.
      *
-     * Everything else should pass through normally.
+     * Everything else passes through normally.
      */
 
     if (url.pathname !== "/") {
@@ -74,6 +117,7 @@ export async function onRequest(context) {
     if (requestedLanguage === "el") {
 
         return redirect(
+            request,
             "/gr/",
             "el"
         );
@@ -84,6 +128,7 @@ export async function onRequest(context) {
     if (requestedLanguage === "en") {
 
         return redirect(
+            request,
             "/",
             "en"
         );
@@ -95,9 +140,17 @@ export async function onRequest(context) {
      * 2. Previously selected language
      */
 
+    const cookieLanguage =
+        getCookie(
+            request,
+            LANGUAGE_COOKIE
+        );
+
+
     if (cookieLanguage === "el") {
 
         return redirect(
+            request,
             "/gr/",
             "el"
         );
@@ -117,7 +170,10 @@ export async function onRequest(context) {
      */
 
     const acceptLanguage =
-        request.headers.get("Accept-Language") || "";
+        request.headers.get(
+            "Accept-Language"
+        ) || "";
+
 
     const browserIsGreek =
         acceptLanguage
@@ -125,7 +181,9 @@ export async function onRequest(context) {
             .split(",")
             .some(
                 language =>
-                    language.trim().startsWith("el")
+                    language
+                        .trim()
+                        .startsWith("el")
             );
 
 
@@ -135,8 +193,11 @@ export async function onRequest(context) {
 
     const country =
         request.cf?.country ||
-        request.headers.get("CF-IPCountry") ||
+        request.headers.get(
+            "CF-IPCountry"
+        ) ||
         "";
+
 
     const visitorIsInGreece =
         country.toUpperCase() === "GR";
@@ -146,9 +207,13 @@ export async function onRequest(context) {
      * Greek visitors go to /gr/.
      */
 
-    if (browserIsGreek || visitorIsInGreece) {
+    if (
+        browserIsGreek ||
+        visitorIsInGreece
+    ) {
 
         return redirect(
+            request,
             "/gr/",
             "el"
         );
@@ -157,11 +222,15 @@ export async function onRequest(context) {
 
 
     /*
-     * Everyone else stays on English.
+     * Everyone else stays on the English
+     * homepage.
+     *
+     * No redirect is necessary.
+     * We simply save the preference.
      */
 
-    return redirect(
-        "/",
+    return serveWithLanguageCookie(
+        context,
         "en"
     );
 

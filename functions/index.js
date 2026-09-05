@@ -6,6 +6,7 @@ function getCookie(request, name) {
     const cookieHeader =
         request.headers.get("Cookie") || "";
 
+
     const cookies =
         cookieHeader.split(";");
 
@@ -38,7 +39,7 @@ function redirect(request, path, language) {
         new URL(
             path,
             request.url
-        );
+        ).toString();
 
 
     const response =
@@ -73,7 +74,7 @@ export async function onRequest(context) {
 
 
     /*
-     * Only handle the homepage.
+     * Only handle the actual homepage.
      */
 
     if (url.pathname !== "/") {
@@ -144,6 +145,7 @@ export async function onRequest(context) {
 
     /*
      * Browser language.
+
      */
 
     const acceptLanguage =
@@ -166,17 +168,13 @@ export async function onRequest(context) {
 
     /*
      * Visitor country.
+
      */
 
     const country =
-        (
-            request.cf &&
-            request.cf.country
-        ) ||
         request.headers.get(
             "CF-IPCountry"
-        ) ||
-        "";
+        ) || "";
 
 
     const visitorIsInGreece =
@@ -185,6 +183,7 @@ export async function onRequest(context) {
 
     /*
      * Greek visitors go to /gr/.
+
      */
 
     if (
@@ -204,6 +203,7 @@ export async function onRequest(context) {
     /*
      * Everyone else gets the normal
      * English homepage.
+
      */
 
     return context.next();

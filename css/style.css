@@ -1989,7 +1989,6 @@ footer a:hover {
 
 }
 
-```css
 /* ================= PROJECT IMAGE HOVER ================= */
 
 
@@ -2171,6 +2170,8 @@ footer a:hover {
 
 }
 
+
+
 /* ================= LANGUAGE SWITCH ================= */
 
 .language-switch {
@@ -2181,9 +2182,11 @@ footer a:hover {
 
     right:60px;
 
-    z-index:1100;
+    z-index:99999;
 
     display:flex;
+
+    flex-direction:row;
 
     align-items:center;
 
@@ -2193,11 +2196,12 @@ footer a:hover {
 
     pointer-events:auto;
 
+    font-family:"Inter", sans-serif;
+
 }
 
 
-.language-switch a,
-.language-switch span {
+.language-switch a {
 
     color:#d8cdb9;
 
@@ -2207,9 +2211,32 @@ footer a:hover {
 
     letter-spacing:.16em;
 
+    font-family:"Inter", sans-serif;
+
     font-size:.65rem;
 
-    transition:.3s;
+    font-weight:400;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    pointer-events:auto;
+
+    transition:color .3s ease;
+
+}
+
+
+.language-switch span {
+
+    color:rgba(216,205,185,.45);
+
+    font-family:"Inter", sans-serif;
+
+    font-size:.65rem;
+
+    line-height:1;
 
 }
 
@@ -2221,22 +2248,12 @@ footer a:hover {
 }
 
 
-.language-switch .active {
+.language-switch a.active {
 
     color:var(--gold);
 
 }
 
-
-.language-switch .separator {
-
-    color:rgba(216,205,185,.45);
-
-}
-
-
-
-/* ================= LANGUAGE SWITCH — MOBILE ================= */
 
 @media(max-width:600px){
 
@@ -2261,130 +2278,3 @@ footer a:hover {
     }
 
 }
-
-
-/* ================= LANGUAGE SWITCH — FINAL ================= */
-
-.language-switch {
-
-    position:fixed !important;
-
-    top:45px !important;
-
-    right:60px !important;
-
-    z-index:99999 !important;
-
-    display:flex !important;
-
-    flex-direction:row !important;
-
-    align-items:center !important;
-
-    gap:8px !important;
-
-    width:auto !important;
-
-    height:auto !important;
-
-    margin:0 !important;
-
-    padding:0 !important;
-
-    opacity:.75 !important;
-
-    visibility:visible !important;
-
-    pointer-events:auto !important;
-
-    font-family:"Inter", sans-serif !important;
-
-}
-
-
-.language-switch a {
-
-    display:inline-block !important;
-
-    position:relative !important;
-
-    color:#d8cdb9 !important;
-
-    text-decoration:none !important;
-
-    text-transform:uppercase !important;
-
-    letter-spacing:.16em !important;
-
-    font-family:"Inter", sans-serif !important;
-
-    font-size:.65rem !important;
-
-    font-weight:400 !important;
-
-    line-height:1 !important;
-
-    cursor:pointer !important;
-
-    pointer-events:auto !important;
-
-    transition:color .3s ease !important;
-
-}
-
-
-.language-switch span {
-
-    display:inline-block !important;
-
-    position:relative !important;
-
-    color:rgba(216,205,185,.45) !important;
-
-    font-family:"Inter", sans-serif !important;
-
-    font-size:.65rem !important;
-
-    line-height:1 !important;
-
-}
-
-
-.language-switch a:hover {
-
-    color:var(--gold) !important;
-
-}
-
-
-.language-switch a.active {
-
-    color:var(--gold) !important;
-
-}
-
-
-@media(max-width:600px){
-
-    .language-switch {
-
-        top:20px !important;
-
-        right:20px !important;
-
-        gap:6px !important;
-
-    }
-
-
-    .language-switch a,
-    .language-switch span {
-
-        font-size:.6rem !important;
-
-        letter-spacing:.14em !important;
-
-    }
-
-}
-

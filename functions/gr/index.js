@@ -4,23 +4,28 @@ const LANGUAGE_COOKIE = "centaur_language";
 function redirect(request, path, language) {
 
     const destination =
-        new URL(path, request.url).toString();
+        new URL(
+            path,
+            request.url
+        ).toString();
 
 
-    const response =
-        Response.redirect(
-            destination,
-            302
-        );
+    return new Response(
+        null,
+        {
+            status: 302,
+            headers: {
+                "Location":
+                    destination,
 
-
-    response.headers.set(
-        "Set-Cookie",
-        `${LANGUAGE_COOKIE}=${language}; Path=/; Max-Age=31536000; SameSite=Lax`
+                "Set-Cookie":
+                    LANGUAGE_COOKIE +
+                    "=" +
+                    language +
+                    "; Path=/; Max-Age=31536000; SameSite=Lax"
+            }
+        }
     );
-
-
-    return response;
 
 }
 
@@ -40,7 +45,8 @@ async function serveGreek(context) {
 
     newResponse.headers.set(
         "Set-Cookie",
-        `${LANGUAGE_COOKIE}=el; Path=/; Max-Age=31536000; SameSite=Lax`
+        LANGUAGE_COOKIE +
+        "=el; Path=/; Max-Age=31536000; SameSite=Lax"
     );
 
 

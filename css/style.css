@@ -2172,94 +2172,86 @@ footer a:hover {
 
 /* ================= LANGUAGE SWITCH ================= */
 
-.language-switch {
+#navbar .language-switch {
 
-    position:fixed !important;
+    position:absolute;
 
-    top:45px !important;
+    top:45px;
 
-    right:60px !important;
+    right:60px;
 
-    z-index:99999 !important;
+    z-index:1100;
 
-    display:flex !important;
+    display:flex;
 
-    align-items:center !important;
+    align-items:center;
 
-    gap:8px !important;
+    gap:10px;
 
-    opacity:.75 !important;
+    font-family:"Inter", sans-serif;
 
-    font-family:"Inter", sans-serif !important;
+    font-size:.7rem;
 
-    pointer-events:auto !important;
+    letter-spacing:.18em;
 
-}
+    line-height:1;
 
-
-.language-switch a {
-
-    display:inline-block !important;
-
-    color:#d8cdb9 !important;
-
-    text-decoration:none !important;
-
-    text-transform:uppercase !important;
-
-    letter-spacing:.16em !important;
-
-    font-family:"Inter", sans-serif !important;
-
-    font-size:.65rem !important;
-
-    font-weight:400 !important;
-
-    line-height:1 !important;
-
-    cursor:pointer !important;
-
-    pointer-events:auto !important;
+    pointer-events:auto;
 
 }
 
 
-.language-switch span {
+#navbar .language-switch a {
 
-    display:inline-block !important;
+    display:block;
 
-    color:rgba(216,205,185,.45) !important;
+    color:#d8cdb9;
 
-    font-family:"Inter", sans-serif !important;
+    text-decoration:none;
 
-    font-size:.65rem !important;
+    opacity:.55;
 
-    line-height:1 !important;
+    cursor:pointer;
 
-}
-
-
-.language-switch a:hover {
-
-    color:var(--gold) !important;
+    transition:opacity .3s ease;
 
 }
 
 
-.language-switch a.active {
+#navbar .language-switch a.active {
 
-    color:var(--gold) !important;
+    opacity:1;
+
+}
+
+
+#navbar .language-switch a:hover {
+
+    opacity:1;
+
+}
+
+
+#navbar .language-switch span {
+
+    color:#d8cdb9;
+
+    opacity:.35;
 
 }
 
 
 @media(max-width:600px){
 
-    .language-switch {
+    #navbar .language-switch {
 
-        top:20px !important;
+        top:20px;
 
-        right:20px !important;
+        right:20px;
+
+        font-size:.65rem;
+
+        letter-spacing:.15em;
 
     }
 

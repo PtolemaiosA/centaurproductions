@@ -2175,17 +2175,23 @@ footer a:hover {
 
 .language-switch {
 
+    position:fixed;
+
+    top:45px;
+
+    right:60px;
+
+    z-index:1100;
+
     display:flex;
 
     align-items:center;
 
-    justify-content:flex-end;
-
     gap:8px;
 
-    margin-top:4px;
-
     opacity:.75;
+
+    pointer-events:auto;
 
 }
 
@@ -2236,9 +2242,11 @@ footer a:hover {
 
     .language-switch {
 
-        gap:6px;
+        top:20px;
 
-        margin-top:0;
+        right:20px;
+
+        gap:6px;
 
     }
 

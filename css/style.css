@@ -2170,4 +2170,86 @@ footer a:hover {
 
 
 }
-```
+
+/* ================= LANGUAGE SWITCH ================= */
+
+.language-switch {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:8px;
+
+    margin-top:4px;
+
+    opacity:.75;
+
+}
+
+
+.language-switch a,
+.language-switch span {
+
+    color:#d8cdb9;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:.16em;
+
+    font-size:.65rem;
+
+    transition:.3s;
+
+}
+
+
+.language-switch a:hover {
+
+    color:var(--gold);
+
+}
+
+
+.language-switch .active {
+
+    color:var(--gold);
+
+}
+
+
+.language-switch .separator {
+
+    color:rgba(216,205,185,.45);
+
+}
+
+
+
+/* ================= LANGUAGE SWITCH — MOBILE ================= */
+
+@media(max-width:600px){
+
+    .language-switch {
+
+        gap:6px;
+
+        margin-top:0;
+
+    }
+
+
+    .language-switch a,
+    .language-switch span {
+
+        font-size:.6rem;
+
+        letter-spacing:.14em;
+
+    }
+
+}

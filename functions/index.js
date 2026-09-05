@@ -35,7 +35,10 @@ function getCookie(request, name) {
 function redirect(request, path, language) {
 
     const destination =
-        new URL(path, request.url).toString();
+        new URL(
+            path,
+            request.url
+        );
 
 
     const response =
@@ -47,38 +50,14 @@ function redirect(request, path, language) {
 
     response.headers.set(
         "Set-Cookie",
-        `${LANGUAGE_COOKIE}=${language}; Path=/; Max-Age=31536000; SameSite=Lax`
+        LANGUAGE_COOKIE +
+        "=" +
+        language +
+        "; Path=/; Max-Age=31536000; SameSite=Lax"
     );
 
 
     return response;
-
-}
-
-
-async function serveWithLanguageCookie(
-    context,
-    language
-) {
-
-    const response =
-        await context.next();
-
-
-    const newResponse =
-        new Response(
-            response.body,
-            response
-        );
-
-
-    newResponse.headers.set(
-        "Set-Cookie",
-        `${LANGUAGE_COOKIE}=${language}; Path=/; Max-Age=31536000; SameSite=Lax`
-    );
-
-
-    return newResponse;
 
 }
 
@@ -94,9 +73,7 @@ export async function onRequest(context) {
 
 
     /*
-     * Only handle the actual homepage.
-     *
-     * Everything else passes through normally.
+     * Only handle the homepage.
      */
 
     if (url.pathname !== "/") {
@@ -107,7 +84,7 @@ export async function onRequest(context) {
 
 
     /*
-     * 1. Explicit language selection
+     * Explicit language selection.
      */
 
     const requestedLanguage =
@@ -137,7 +114,7 @@ export async function onRequest(context) {
 
 
     /*
-     * 2. Previously selected language
+     * Previously selected language.
      */
 
     const cookieLanguage =
@@ -166,7 +143,7 @@ export async function onRequest(context) {
 
 
     /*
-     * 3. Browser language
+     * Browser language.
      */
 
     const acceptLanguage =
@@ -188,11 +165,14 @@ export async function onRequest(context) {
 
 
     /*
-     * 4. Cloudflare visitor country
+     * Visitor country.
      */
 
     const country =
-        request.cf?.country ||
+        (
+            request.cf &&
+            request.cf.country
+        ) ||
         request.headers.get(
             "CF-IPCountry"
         ) ||
@@ -222,16 +202,10 @@ export async function onRequest(context) {
 
 
     /*
-     * Everyone else stays on the English
-     * homepage.
-     *
-     * No redirect is necessary.
-     * We simply save the preference.
+     * Everyone else gets the normal
+     * English homepage.
      */
 
-    return serveWithLanguageCookie(
-        context,
-        "en"
-    );
+    return context.next();
 
 }

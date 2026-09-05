@@ -42,208 +42,165 @@ function redirect(request, path, language) {
         ).toString();
 
 
-    const response =
-        Response.redirect(
-            destination,
-            302
-        );
+    return new Response(
+        null,
+        {
+            status: 302,
+            headers: {
+                "Location":
+                    destination,
 
-
-    response.headers.set(
-        "Set-Cookie",
-        LANGUAGE_COOKIE +
-        "=" +
-        language +
-        "; Path=/; Max-Age=31536000; SameSite=Lax"
+                "Set-Cookie":
+                    LANGUAGE_COOKIE +
+                    "=" +
+                    language +
+                    "; Path=/; Max-Age=31536000; SameSite=Lax"
+            }
+        }
     );
-
-
-    return response;
 
 }
 
 
 export async function onRequest(context) {
 
-    try {
-
-        const request =
-            context.request;
+    const request =
+        context.request;
 
 
-        const url =
-            new URL(request.url);
+    const url =
+        new URL(request.url);
 
 
-        /*
-         * Only handle the actual homepage.
-         */
+    /*
+     * Only handle the actual homepage.
+     */
 
-        if (url.pathname !== "/") {
-
-            return context.next();
-
-        }
-
-
-        /*
-         * Explicit language selection.
-         */
-
-        const requestedLanguage =
-            url.searchParams.get("lang");
-
-
-        if (requestedLanguage === "el") {
-
-            return redirect(
-                request,
-                "/gr/",
-                "el"
-            );
-
-        }
-
-
-        if (requestedLanguage === "en") {
-
-            return redirect(
-                request,
-                "/",
-                "en"
-            );
-
-        }
-
-
-        /*
-         * Previously selected language.
-         */
-
-        const cookieLanguage =
-            getCookie(
-                request,
-                LANGUAGE_COOKIE
-            );
-
-
-        if (cookieLanguage === "el") {
-
-            return redirect(
-                request,
-                "/gr/",
-                "el"
-            );
-
-        }
-
-
-        if (cookieLanguage === "en") {
-
-            return context.next();
-
-        }
-
-
-        /*
-         * Browser language.
-         */
-
-        const acceptLanguage =
-            request.headers.get(
-                "Accept-Language"
-            ) || "";
-
-
-        const browserIsGreek =
-            acceptLanguage
-                .toLowerCase()
-                .split(",")
-                .some(
-                    language =>
-                        language
-                            .trim()
-                            .startsWith("el")
-                );
-
-
-        /*
-         * Visitor country.
-         */
-
-        const country =
-            request.headers.get(
-                "CF-IPCountry"
-            ) || "";
-
-
-        const visitorIsInGreece =
-            country.toUpperCase() === "GR";
-
-
-        /*
-         * Greek visitors go to /gr/.
-         */
-
-        if (
-            browserIsGreek ||
-            visitorIsInGreece
-        ) {
-
-            return redirect(
-                request,
-                "/gr/",
-                "el"
-            );
-
-        }
-
-
-        /*
-         * Everyone else gets the normal
-         * English homepage.
-         */
+    if (url.pathname !== "/") {
 
         return context.next();
 
     }
 
-    catch (error) {
 
-        return new Response(
-            (
-                "Centaur language function error\n\n" +
-                "Name: " +
-                (
-                    error &&
-                    error.name
-                        ? error.name
-                        : "Unknown"
-                ) +
-                "\n\nMessage: " +
-                (
-                    error &&
-                    error.message
-                        ? error.message
-                        : String(error)
-                ) +
-                "\n\nStack:\n" +
-                (
-                    error &&
-                    error.stack
-                        ? error.stack
-                        : "No stack trace available"
-                )
-            ),
-            {
-                status: 500,
-                headers: {
-                    "Content-Type":
-                        "text/plain; charset=UTF-8"
-                }
-            }
+    /*
+     * Explicit language selection.
+     */
+
+    const requestedLanguage =
+        url.searchParams.get("lang");
+
+
+    if (requestedLanguage === "el") {
+
+        return redirect(
+            request,
+            "/gr/",
+            "el"
         );
 
     }
+
+
+    if (requestedLanguage === "en") {
+
+        return redirect(
+            request,
+            "/",
+            "en"
+        );
+
+    }
+
+
+    /*
+     * Previously selected language.
+     */
+
+    const cookieLanguage =
+        getCookie(
+            request,
+            LANGUAGE_COOKIE
+        );
+
+
+    if (cookieLanguage === "el") {
+
+        return redirect(
+            request,
+            "/gr/",
+            "el"
+        );
+
+    }
+
+
+    if (cookieLanguage === "en") {
+
+        return context.next();
+
+    }
+
+
+    /*
+     * Browser language.
+     */
+
+    const acceptLanguage =
+        request.headers.get(
+            "Accept-Language"
+        ) || "";
+
+
+    const browserIsGreek =
+        acceptLanguage
+            .toLowerCase()
+            .split(",")
+            .some(
+                language =>
+                    language
+                        .trim()
+                        .startsWith("el")
+            );
+
+
+    /*
+     * Visitor country.
+     */
+
+    const country =
+        request.headers.get(
+            "CF-IPCountry"
+        ) || "";
+
+
+    const visitorIsInGreece =
+        country.toUpperCase() === "GR";
+
+
+    /*
+     * Greek visitors go to /gr/.
+     */
+
+    if (
+        browserIsGreek ||
+        visitorIsInGreece
+    ) {
+
+        return redirect(
+            request,
+            "/gr/",
+            "el"
+        );
+
+    }
+
+
+    /*
+     * Everyone else gets the normal
+     * English homepage.
+     */
+
+    return context.next();
 
 }

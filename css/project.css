@@ -1757,3 +1757,24 @@ body {
 .language-switch a:hover,
 .language-switch a:focus-visible { color:var(--gold) !important; }
 .language-switch a.active { color:#e8dfcf !important; }
+
+
+/* ================= EMBEDDED PROJECT VIDEO ================= */
+
+.project-video {
+    position:relative;
+    width:100%;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    background:#000;
+    border:1px solid rgba(198,161,91,.35);
+}
+
+.project-video iframe {
+    position:absolute;
+    inset:0;
+    display:block;
+    width:100%;
+    height:100%;
+    border:0;
+}

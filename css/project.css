@@ -1741,3 +1741,19 @@ body {
 .language-switch a.active {
     color:#d8cdb9;
 }
+
+
+/* Language selector palette: match menu text and serif titles. */
+.language-switch,
+.language-switch a,
+.language-switch a:visited,
+.language-switch span {
+  color:#d8cdb9 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  text-decoration:none;
+}
+.language-switch a:hover,
+.language-switch a:focus-visible { color:var(--gold) !important; }
+.language-switch a.active { color:#e8dfcf !important; }

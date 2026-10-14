@@ -8,4 +8,13 @@
 
     </url>
 
+  <url><loc>https://centaurprods.com/de/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://centaurprods.com/projects/de/traditional.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/indie-productions.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/rock-pop.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/gaming-cinematic.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/assassins-creed.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/challe.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/san-aeraki-tha-hatho.html</loc></url>
+  <url><loc>https://centaurprods.com/projects/de/tum-na-jane.html</loc></url>
 </urlset>

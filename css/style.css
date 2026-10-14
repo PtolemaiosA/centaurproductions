@@ -3331,29 +3331,43 @@ footer a:hover {
 #navbar .menu .language-switch a:focus-visible { color:var(--gold) !important; }
 
 
-/* Keep language selection visible independently of the sliding navigation menu. */
-#navbar > .language-switch {
-  position:fixed;
-  top:42px;
-  right:60px;
-  z-index:1101;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:0;
-  opacity:1;
-  pointer-events:auto;
-  font-size:.72rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+
+/* Language selector belongs to the navigation menu. */
+.menu .language-switch {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:4px;
+    opacity:1;
+    pointer-events:auto;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
 }
-#navbar > .language-switch,
-#navbar > .language-switch a,
-#navbar > .language-switch a:visited,
-#navbar > .language-switch span { color:#d8cdb9 !important; background:transparent !important; border:0 !important; box-shadow:none !important; text-decoration:none; }
-#navbar > .language-switch a:hover,
-#navbar > .language-switch a:focus-visible { color:var(--gold) !important; }
+.menu .language-switch,
+.menu .language-switch a,
+.menu .language-switch a:visited,
+.menu .language-switch span {
+    color:#d8cdb9 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    text-decoration:none;
+}
+.menu .language-switch a {
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    padding:0;
+    pointer-events:auto;
+}
+.menu .language-switch a:hover,
+.menu .language-switch a:focus-visible {
+    color:var(--gold) !important;
+}
 @media (max-width:768px) {
-  #navbar > .language-switch { top:24px; right:18px; gap:7px; font-size:.62rem; }
-  #navbar .menu { top:72px; right:18px; }
+    .menu .language-switch { gap:7px; font-size:.65rem; }
+    .menu .language-switch a { font-size:.65rem; }
 }

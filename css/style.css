@@ -3315,3 +3315,17 @@ footer a:hover {
 
 
 }
+
+/* Language selector: warm beige like menu text; gold only on hover. */
+#navbar .menu .language-switch,
+#navbar .menu .language-switch a,
+#navbar .menu .language-switch a:visited,
+#navbar .menu .language-switch span {
+  color:#d8cdb9 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  text-decoration:none;
+}
+#navbar .menu .language-switch a:hover,
+#navbar .menu .language-switch a:focus-visible { color:var(--gold) !important; }

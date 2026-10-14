@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".language-switch a").forEach(function(link) {
     link.addEventListener("click", function() {
       const h = link.getAttribute("href") || "";
-      const lang = h.includes("lang=de") || h.includes("/de/") ? "de" : h.includes("lang=el") || h.includes("/gr/") ? "el" : "en";
+      const label = (link.textContent || "").trim();
+      const lang = label === "DE" || h.includes("lang=de") || h.includes("/de/") ? "de" : label === "ΕΛ" || h.includes("lang=el") || h.includes("/gr/") ? "el" : "en";
       try { localStorage.setItem("centaurLanguage", lang); } catch(e) {}
     });
   });
